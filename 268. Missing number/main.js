@@ -1,17 +1,15 @@
 // 268. Missing number
-// Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+// Дан массив nums, содержащий различные числа в диапазоне [0, n], вернуть единственное число в диапазоне, отсутствующее в массиве.
 
-var findDisappearedNumbers = function (nums) {
-  const result = [];
-  const arr = [];
-  for (let i = 0; i < nums.length; i++) {
-    arr.push(i + 1);
-    if (!nums.includes(arr[i])) {
-      result.push(arr[i]);
-    }
-  }
-
-  return result;
+var missingNumber = function (nums) {
+  const n = nums.length;
+  const sum = nums.reduce((a, b) => a + b, 0);
+  return (n * (n + 1)) / 2 - sum;
 };
 
-findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]);
+// Для вычисления первых n натуральных чисел используется формула n * (n + 1) / 2
+// Например:
+// 1 + 2 + 3 + 4 + 5 = 15
+
+// Можно посчитать как:
+// 5 * (5 + 1) / 2 = 15
