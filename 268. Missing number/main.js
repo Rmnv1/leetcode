@@ -1,7 +1,7 @@
 // 268. Missing number
 // Дан массив nums, содержащий различные числа в диапазоне [0, n], вернуть единственное число в диапазоне, отсутствующее в массиве.
 
-var missingNumber = function (nums) {
+let missingNumber = function (nums) {
   const n = nums.length;
   const sum = nums.reduce((a, b) => a + b, 0);
   return (n * (n + 1)) / 2 - sum;
