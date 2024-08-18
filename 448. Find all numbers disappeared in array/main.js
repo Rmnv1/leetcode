@@ -4,6 +4,7 @@
 var findDisappearedNumbers = function (nums) {
   const result = [];
   const arr = [];
+
   for (let i = 0; i < nums.length; i++) {
     arr.push(i + 1);
     if (!nums.includes(arr[i])) {
