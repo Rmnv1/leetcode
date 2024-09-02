@@ -1,0 +1,19 @@
+{
+  "name": "leetcode-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generateIndex.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rmnv1/leetcode-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rmnv1/leetcode-practice/issues"
+  },
+  "homepage": "https://github.com/Rmnv1/leetcode-practice#readme"
+}
