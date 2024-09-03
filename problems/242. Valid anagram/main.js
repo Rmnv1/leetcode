@@ -1,0 +1,57 @@
+// 2665. Counter II
+// Даны две строки s и t, вернуть, true если t является анаграммой s, и false в противном случае.
+
+// Анаграмма — это слово или фраза, образованные путем перестановки букв другого слова или фразы, обычно с использованием всех исходных букв ровно один раз.
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function (s, t) {
+  const words = {};
+
+  if (s.length !== t.length) return false;
+  for (let i = 0; i < s.length; i++) {
+    if (!words[s[i]]) {
+      words[s[i]] = 1;
+    } else {
+      words[s[i]] += 1;
+    }
+  }
+  for (let i = 0; i < t.length; i++) {
+    if (words[t[i]] < 2) {
+      delete words[t[i]];
+    } else {
+      words[t[i]] -= 1;
+    }
+  }
+  return !Object.keys(words).length;
+};
+
+// TWO POINTERS VARIANT
+// var isPalindrome = function (s) {
+//   const isAlphaNumeric = c => (c.toLowerCase() >= 'a' && c.toLowerCase() <= 'z') || c >= '0' && c <= '9'
+
+//   let left = 0;
+//   let right = s.length - 1;
+//   let skipLeft, skipRight, endsEqual = false;
+
+//   while (left < right) {
+//     skipLeft = !isAlphaNumeric(s.charAt(left))
+//     if (skipLeft) { left++; continue; }
+
+//     skipRight = !isAlphaNumeric(s.charAt(right))
+//     if (skipRight) { right--; continue; }
+
+//     endsEqual = s.charAt(left).toLowerCase() === s.charAt(right).toLowerCase()
+//     if (!endsEqual) return false
+
+//     left++
+//     right--
+//   }
+//   return true
+// };
+
+// ONE LINE
+// return s.split('').sort().join('') === t.split('').sort().join('')

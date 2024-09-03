@@ -1,0 +1,47 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>136. Single number</title>
+      <style>
+        .code-container {
+          border: 1px solid #ccc;
+          padding: 10px;
+          background-color: #fff;
+          font-family: monospace;
+          white-space: pre;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>136. Single number</h1>
+      <div class="code-container">// 136. Single Number
+// Дано непустое  множество целых чисел nums, каждый элемент встречается дважды, за исключением одного. Найдите этот единственный элемент.
+
+// Необходимо реализовать решение с линейной сложностью выполнения и использовать только постоянное дополнительное пространство.
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+
+function singleNumber(nums) {
+  let lastNum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    lastNum = lastNum ^ nums[i];
+  }
+  return lastNum;
+}
+
+// Оператор XOR - ^
+// Побитовое исключающее ИЛИ. Побитовые операторы интерпретируют операнды как последовательность из 32 битов (нулей и единиц). Они производят операции, используя двоичное представление числа, и возвращают новую последовательность из 32 бит (число) в качестве результата.
+// Работает как логическое сложение
+
+// 0101
+// 0101
+// =
+// 0000
+</div>
+    </body>
+    </html>
+  
