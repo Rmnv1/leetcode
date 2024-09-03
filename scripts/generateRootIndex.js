@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const PROJECT_ROOT = __dirname + "/..";
-const OUTPUT_FILE = path.join(PROJECT_ROOT, "public", "index.html");
+const OUTPUT_FILE = path.join(PROJECT_ROOT, "index.html");
 
 function getTaskFolders() {
   return fs
