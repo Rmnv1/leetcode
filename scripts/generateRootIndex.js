@@ -6,7 +6,7 @@ const OUTPUT_FILE = path.join(PROJECT_ROOT, "public", "index.html");
 
 function getTaskFolders() {
   return fs
-    .readdirSync(PROJECT_ROOT + "/src", { withFileTypes: true })
+    .readdirSync(PROJECT_ROOT + "/problems", { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory() && dirent.name.match(/^\d+\./))
     .map((dirent) => dirent.name);
 }
@@ -16,7 +16,7 @@ function generateIndexHtml(folders) {
     .map((folder) => {
       const [taskNumber, ...taskNameParts] = folder.split(".");
       const taskName = taskNameParts.join(".");
-      const taskLink = `../src/${folder}/index.html`;
+      const taskLink = `../problems/${folder}/index.html`;
       return `<li><a href="${taskLink}">${taskNumber}. ${taskName}</a></li>`;
     })
     .join("");

@@ -5,7 +5,7 @@ const PROJECT_ROOT = __dirname + "/..";
 
 function getTaskFolders() {
   return fs
-    .readdirSync(PROJECT_ROOT + "/src", { withFileTypes: true })
+    .readdirSync(PROJECT_ROOT + "/problems", { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory() && dirent.name.match(/^\d+\./))
     .map((dirent) => dirent.name);
 }
@@ -34,7 +34,7 @@ function generateTaskHtml(taskFolder, jsCode) {
 }
 
 function createTaskIndex(taskFolder) {
-  const folderPath = path.join(PROJECT_ROOT, "src", taskFolder);
+  const folderPath = path.join(PROJECT_ROOT, "problems", taskFolder);
   const indexHtmlPath = path.join(folderPath, "index.html");
   const mainJsPath = path.join(folderPath, "main.js");
 
