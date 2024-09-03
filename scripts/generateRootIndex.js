@@ -16,7 +16,7 @@ function generateIndexHtml(folders) {
     .map((folder) => {
       const [taskNumber, ...taskNameParts] = folder.split(".");
       const taskName = taskNameParts.join(".");
-      const taskLink = `../problems/${folder}/index.html`;
+      const taskLink = `./problems/${folder}/index.html`;
       return `<li><a href="${taskLink}">${taskNumber}. ${taskName}</a></li>`;
     })
     .join("");
