@@ -1,0 +1,60 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>2721. Execute Asynchronous Functions in Parallel</title>
+      <style>
+        .code-container {
+          border: 1px solid #ccc;
+          padding: 10px;
+          background-color: #fff;
+          font-family: monospace;
+          white-space: pre;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>2721. Execute Asynchronous Functions in Parallel</h1>
+      <div class="code-container">// Учитывая массив асинхронных функций  functions, вернуть новый promise promise. Каждая функция в массиве не принимает аргументов и возвращает promise. Все promise должны выполняться параллельно.
+
+// promise resolves:
+
+// Когда все обещания, возвращенные из,  functions были успешно разрешены параллельно. Разрешенное значение  promise должно быть массивом всех разрешенных значений обещаний в том же порядке, в котором они были в functions. promise Должен разрешаться, когда все асинхронные функции в массиве завершили выполнение параллельно.
+// promise rejects:
+
+// Если какое-либо из обещаний, возвращенных из functions , было отклонено,  promise следует также отклонить с указанием причины первого отклонения.
+// Пожалуйста, решите ее, не используя встроенную Promise.all функцию.
+
+/**
+ * @param {Array<Function>} functions
+ * @return {Promise<any>}
+ */
+
+var promiseAll = async function (functions) {
+  if (!functions.length) return Promise.resolve(functions);
+
+  return new Promise((resolve, reject) => {
+    const results = [];
+    let completedCount = 0;
+
+    functions.forEach((fn, i) => {
+      fn()
+        .then((val) => {
+          results[i] = val;
+          completedCount++;
+          if (completedCount === functions.length) {
+            resolve(results);
+          }
+        })
+        .catch((err) => reject(err));
+    });
+  });
+};
+
+/**
+ * const promise = promiseAll([() => new Promise(res => res(42))])
+ * promise.then(console.log); // [42]
+ */
+</div>
+      <script src="main.js"></script>  </body> </html>
+  
