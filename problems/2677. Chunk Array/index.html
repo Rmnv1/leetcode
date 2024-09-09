@@ -1,0 +1,29 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>2677. Chunk Array</title>
+      <style>
+        .code-container {
+          border: 1px solid #ccc;
+          padding: 10px;
+          background-color: #fff;
+          font-family: monospace;
+          white-space: pre;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>2677. Chunk Array</h1>
+      <div class="code-container">// 2677. Chunk Array
+
+var chunk = function (arr, size) {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    result.push(arr.splice(0, size));
+  }
+  return result;
+};
+</div>
+      <script src="main.js"></script>  </body> </html>
+  
