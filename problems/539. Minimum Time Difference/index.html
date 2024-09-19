@@ -1,0 +1,47 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>539. Minimum Time Difference</title>
+      <style>
+        .code-container {
+          border: 1px solid #ccc;
+          padding: 10px;
+          background-color: #fff;
+          font-family: monospace;
+          white-space: pre;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>539. Minimum Time Difference</h1>
+      <div class="code-container">// 539. Minimum Time Difference
+
+// Учитывая список точек времени в 24-часовом формате «ЧЧ:ММ», вернуть минимальную разницу в минутах между любыми двумя точками времени в списке.
+
+/**
+ * @param {string[]} timePoints
+ * @return {number}
+ */
+
+var findMinDifference = function (timePoints) {
+  const convertedMinutes = timePoints.map((time) => {
+    let [hours, minutes] = time.split(":");
+    return Number(hours) * 60 + Number(minutes);
+  });
+  convertedMinutes.sort((a, b) => a - b);
+
+  let result = Infinity;
+
+  for (let i = 1; i < convertedMinutes.length; i++) {
+    result = Math.min(result, convertedMinutes[i] - convertedMinutes[i - 1]);
+  }
+
+  return Math.min(
+    result,
+    1440 - convertedMinutes.at(-1) + convertedMinutes.at(0)
+  );
+};
+</div>
+      <script src="main.js"></script>  </body> </html>
+  
