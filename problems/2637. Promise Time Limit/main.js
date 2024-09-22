@@ -14,15 +14,12 @@
  */
 
 var timeLimit = function (fn, t) {
-  return async function (...args) {
+  return function (...args) {
     const ctx = this;
     const p1 = new Promise((_, rej) =>
       setTimeout(() => rej("Time Limit Exceeded"), t)
     );
-    const p2 = new Promise((res, rej) => {
-      res(fn.apply(ctx, args));
-    });
-
+    const p2 = new Promise((res) => res(fn.apply(ctx, args)));
     return Promise.race([p1, p2]);
   };
 };
